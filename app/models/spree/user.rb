@@ -16,7 +16,7 @@ module Spree
     validates_format_of       :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/, if: :email_changed?
     validates_presence_of     :password, if: :password_required?
     validates_confirmation_of :password, if: :password_required?
-    validates_length_of       :password, within: 6..128
+    validates_length_of       :password, within: 6..128, allow_blank: true
 
     users_table_name = User.table_name
     roles_table_name = Role.table_name
